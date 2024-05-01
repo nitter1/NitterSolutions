@@ -1228,8 +1228,10 @@ div#preloader {
 /* 11. Pricing Area
 /*----------------------------------------*/
 
-.pricing-area {
-  background: rgba(0, 0, 0, 0.02) none repeat scroll 0 0;
+.pricing-area .row.justify-content-center{
+  background: rgba(255, 255, 255, 0.02) none repeat scroll 0 0;
+  display: flex;
+  justify-content: center;
 }
 
 .pri_table_list {
