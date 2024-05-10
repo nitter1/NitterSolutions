@@ -1368,6 +1368,11 @@ div#preloader {
   .pri_table_list {
     padding: 20px; /* Adicione um espaçamento interno nas tabelas */
   }
+
+  .check {
+  font-size: 13px;
+}
+
 }
 /*----------------------------------------
  12.Testimonial Area Css
