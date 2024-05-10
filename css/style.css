@@ -1353,6 +1353,22 @@ div#preloader {
   transition: 0.4s;
 }
 
+@media (max-width: 767px) {
+  .pricing-area .row.justify-content-center {
+    padding: 20px 0; /* Adicione um espaçamento entre as tabelas */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col-md-6 {
+    width: 100%; /* As colunas ocupam toda a largura para empilhar verticalmente */
+    margin-bottom: 20px; /* Adicione um espaçamento entre as colunas */
+  }
+
+  .pri_table_list {
+    padding: 20px; /* Adicione um espaçamento interno nas tabelas */
+  }
+}
 /*----------------------------------------
  12.Testimonial Area Css
 ----------------------------------------*/
