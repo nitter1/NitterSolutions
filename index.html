@@ -1000,45 +1000,41 @@
           </div>
           <!-- End Google Map -->
 
-          <!-- Start  contact -->
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="form contact-form">
-              <div id="sendmessage">Sua mensagem foi enviada. Obrigado!</div>
-              <div id="errormessage">Houve um erro ao tentar enviar a mensagem. Tente novamente mais tarde.</div>
-              <form action="https://api.staticforms.xyz/submit" method="post" role="form" class="contactForm">
-                <input type="hidden" name="accessKey" value="04f7f850-7883-481a-8558-5979b6d8cea6"> <!-- Required -->
-                <!-- If we receive data in this field submission will be ignored -->
-                <input type="text" name="honeypot" style="display: none;"> <!-- Optional -->
-                <div class="form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Seu Nome"
-                    data-rule="minlen:4" data-msg="Por favor insira pelo menos 4 caracteres" />
-                  <div class="validation"></div>
+        <!-- Start contact -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="form contact-form">
+                    <div id="sendmessage" style="display: none;">Sua mensagem foi enviada com sucesso!</div>
+                    <div id="errormessage" style="display: none;"></div>
+                    <form id="contactForm" role="form" class="contactForm">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Nome"
+                                data-rule="minlen:4" data-msg="Por favor insira pelo menos 4 caracteres" />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email"
+                                data-rule="email" data-msg="Por favor digite um email válido" />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto"
+                                data-rule="minlen:4" data-msg="Por favor insira pelo menos 8 caracteres no assunto" />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="5" data-rule="required"
+                                data-msg="Por favor, escreva algo para nós" placeholder="Mensagem"></textarea>
+                            <div class="validation"></div>
+                        </div>
+                        <div class="text-center"><button type="submit">Enviar Mensagem</button></div>
+                    </form>
                 </div>
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Seu Email"
-                    data-rule="email" data-msg="Por favor digite um email válido" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto"
-                    data-rule="minlen:4" data-msg="Por favor insira pelo menos 8 caracteres de assunto" />
-                  <div class="validation"></div>
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required"
-                    data-msg="Digite a sua mensagem" placeholder="Digite a sua mensagem"></textarea>
-                  <div class="validation"></div>
-                </div>
-                <div class="text-center"><button type="submit">Enviar Mensagem</button></div>
-              </form>
             </div>
-          </div>
-          <!-- End Left contact -->
         </div>
-      </div>
     </div>
-  </div>
-  <!-- End Contact Area -->
+    <!-- End Contact Area -->
 
   <!-- Start Footer bottom Area -->
   <footer>
@@ -1131,9 +1127,6 @@
   <script src="lib/appear/jquery.appear.js"></script>
   <script src="lib/isotope/isotope.pkgd.min.js"></script>
 
-  <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
-
   <!-- JS Whatsapp Button -->
   <link rel="stylesheet"
     href="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-button.css">
@@ -1141,6 +1134,29 @@
     href="https://api.whatsapp.com/send?phone=5522998272519&text=Ol%C3%A1!%20Vi%20o%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20seus%20servi%C3%A7os.">
     <img src="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-icon.svg">
   </a>
+<!-- SCRIPT AJAX PARA FORM -->
+ <script>
+        $(document).ready(function () {
+            $('#contactForm').on('submit', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: 'php/contactform.php',
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        $('#sendmessage').show();
+                        $('#errormessage').hide();
+                        $('#sendmessage').html(response);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        $('#sendmessage').hide();
+                        $('#errormessage').show();
+                        $('#errormessage').html('Não foi possível enviar a mensagem. Erro do servidor.');
+                    }
+                });
+            });
+        });
+    </script>
 
   <script src="js/main.js"></script>
 </body>
