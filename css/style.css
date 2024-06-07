@@ -1771,6 +1771,7 @@ div#preloader {
 .footer-area {
   padding: 40px 0;
   background: #f9f9f9;
+  width: 100%;
 }
 
 .footer-head p {
@@ -1799,7 +1800,7 @@ div#preloader {
 }
 
 .footer-logo h2 span {
-  color: #3ec1d5;
+  color: #3EC1D5;
 }
 
 .footer-icons ul li {
@@ -1830,8 +1831,8 @@ div#preloader {
 }
 
 .footer-contacts p span {
-  color: #3EC1D5;
-  font-weight: 700;
+  color: #000;
+  font-weight: 800;
 }
 
 .popular-tag ul li {
@@ -1871,11 +1872,6 @@ div#preloader {
   padding: 15px 0;
 }
 
-.copyright-text a:hover {
-  text-decoration: underline;
-  color: #3EC1D5;
-}
-
 .copyright-text a {
   color: #444;
 }
@@ -1886,12 +1882,29 @@ div#preloader {
 }
 
 .copyright a, .credits a {
+  color: #000;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.copyright a:hover, .credits a:hover {
   color: #3EC1D5;
+  font-weight: 800;
+  text-decoration: none;
 }
 
 .credits {
   padding-top: 5px;
   text-align: center;
+}
+
+.contfoot {
+  display: flex;
+  justify-content: space-around;
+}
+
+.contsobre {
+  margin-top: 2em;
 }
 
 /*----------------------------------------*/
