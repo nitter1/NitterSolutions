@@ -1134,29 +1134,9 @@
     href="https://api.whatsapp.com/send?phone=5522998272519&text=Ol%C3%A1!%20Vi%20o%20seu%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20seus%20servi%C3%A7os.">
     <img src="https://cdn.positus.global/production/resources/robbu/whatsapp-button/whatsapp-icon.svg">
   </a>
-<!-- SCRIPT AJAX PARA FORM -->
- <script>
-        $(document).ready(function () {
-            $('#contactForm').on('submit', function (e) {
-                e.preventDefault();
-                $.ajax({
-                    type: 'POST',
-                    url: 'php/contactform.php',
-                    data: $(this).serialize(),
-                    success: function (response) {
-                        $('#sendmessage').show();
-                        $('#errormessage').hide();
-                        $('#sendmessage').html(response);
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        $('#sendmessage').hide();
-                        $('#errormessage').show();
-                        $('#errormessage').html('Não foi possível enviar a mensagem. Erro do servidor.');
-                    }
-                });
-            });
-        });
-    </script>
+
+  <!--SCRIPT EMAIL-->
+  <script src="js/mailer.js"></script>
 
   <script src="js/main.js"></script>
 </body>
