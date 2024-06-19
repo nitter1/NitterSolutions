@@ -378,6 +378,13 @@ div#preloader {
 .main-menu .dropdown ul li {
   display: block;
 }
+
+.logoHeader {
+  width: 269px;
+  height: 69px;
+  position: relative;
+  bottom: 14px;
+}
 /*--------------------------------*/
 
 /* 2.1. Stick menu
